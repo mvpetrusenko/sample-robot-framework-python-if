@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20230324 22:08:47.961" rpa="false" schemaversion="3">
+<suite id="s1" name="BBC" source="C:\Users\Edward\PycharmProjects\sample-robot-framework-python\Tests\BBC.robot">
+<test id="s1-t1" name="User can search for the article" line="40">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${START_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230324 22:08:48.305" level="INFO">Opening browser 'chrome' to base url 'https://www.bbc.com/'.</msg>
+<status status="PASS" starttime="20230324 22:08:48.305" endtime="20230324 22:08:55.786"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230324 22:08:55.788" endtime="20230324 22:08:56.009"/>
+</kw>
+<status status="PASS" starttime="20230324 22:08:48.305" endtime="20230324 22:08:56.010"/>
+</kw>
+<kw name="Search for the valid article" library="BBC">
+<kw name="Search for the result" library="SearchResults">
+<arg>England</arg>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[.//text()='Consent']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 22:08:56.015" level="INFO">Clicking button '//button[.//text()='Consent']'.</msg>
+<status status="PASS" starttime="20230324 22:08:56.014" endtime="20230324 22:08:56.613"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="orbit-search-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230324 22:08:56.615" level="INFO">Clicking element '//*[@id="orbit-search-button"]'.</msg>
+<status status="PASS" starttime="20230324 22:08:56.614" endtime="20230324 22:08:58.576"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//*[@id="search-input"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230324 22:08:58.576" endtime="20230324 22:08:58.665"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>//*[@id="search-input"]</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230324 22:08:58.666" level="INFO">Typing text 'England' into text field '//*[@id="search-input"]'.</msg>
+<status status="PASS" starttime="20230324 22:08:58.665" endtime="20230324 22:08:58.981"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[@data-testid="test-search-submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230324 22:08:58.981" level="INFO">Clicking button '//button[@data-testid="test-search-submit"]'.</msg>
+<status status="PASS" starttime="20230324 22:08:58.981" endtime="20230324 22:08:59.694"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${search_results}</var>
+<arg>//*[@id='main-content']/div[3]/div/div/ul</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230324 22:09:00.257" level="INFO">${search_results} = England: Made in the Middle
+Historian Helen Castor examines the role of the Midlands in the creation of England.
+Site
+Programmes
+Section
+BBC Radio 4
+We Are England
+We Are England explores the issues p...</msg>
+<status status="PASS" starttime="20230324 22:08:59.695" endtime="20230324 22:09:00.257"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${name}' in '${search_results}'</arg>
+<arg>Log</arg>
+<arg>Here is your results</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>Sorry for the invalid search result</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<msg timestamp="20230324 22:09:00.260" level="FAIL">Evaluating expression ''England' in 'England: Made in the Middle
+Historian Helen Castor examines the role of the Midlands in the creation of England.
+Site
+Programmes
+Section
+BBC Radio 4
+We Are England
+We Are England explores the issues people care about, as told by them.
+Site
+Programmes
+Section
+BBC One
+Discovery of England
+Jonathan Bate explores how Elizabethan culture has shaped our image of England.
+Site
+Programmes
+Section
+BBC Radio 4
+Women's Six Nations 2023: Can professional Scotland close gap to England?
+Scotland's players have had contracts like England since the end of 2022, but it may be too soon for them to catch up with the Red Roses.
+Published
+2 hours ago
+Site
+Sport
+Section
+Rugby Union
+Ten Minute Rule Bill: Same Sex Marriage (Church of England) Bill
+The introduction of a Bill on same sex marriage in the Church of England, from 21 March.
+Published
+2 days ago
+Site
+Programmes
+Section
+BBC Parliament
+Sarah Hunter: The people who shaped England captain's rugby career
+England captain Sarah Hunter talks about the people who helped shape her career ahead of her final game for England in the Women's Six Nations.
+Published
+3 hours ago
+Site
+Sport
+Section
+Rugby Union
+Euro 2024: School pupils inspire England stars to victory
+Students from The Westgate School met England stars, including Harry Kane, ahead of their win against Italy.
+Published
+8 hours ago
+Site
+News
+Section
+Hampshire &amp; Isle of Wight
+Football Focus: Manchester City's Laura Coombs missed her England call from Sarina Wiegman
+Manchester City's Laura Coombs tells Football Focus how, despite waiting eight years between England caps, she initially didn't pick up a call from Lionesses boss Sarina Wiegman.
+Published
+9 hours ago
+Site
+Sport
+Section
+Women's Football
+Harry Kane: England captain reflects on breaking England goalscoring record on 'amazing night' in Italy
+England captain Harry Kane says it was a "proud moment" for him to break the England goalscoring record.
+Published
+12 hours ago
+Site
+Sport
+Section
+Football
+Watch: England U21 v France U21 LIVE
+Watch live coverage as England host France in an under-21 friendly at the King Power Stadium.
+Published
+4 hours ago
+Site
+Sport
+Section
+Football'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)</msg>
+<status status="FAIL" starttime="20230324 22:09:00.257" endtime="20230324 22:09:00.322"/>
+</kw>
+<status status="FAIL" starttime="20230324 22:08:56.012" endtime="20230324 22:09:00.323"/>
+</kw>
+<kw name="Verify search valid result">
+<status status="NOT RUN" starttime="20230324 22:09:00.332" endtime="20230324 22:09:00.332"/>
+</kw>
+<status status="FAIL" starttime="20230324 22:08:56.011" endtime="20230324 22:09:00.334"/>
+</kw>
+<doc>Basic info about the test</doc>
+<tag>Positive</tag>
+<tag>Smoke</tag>
+<status status="FAIL" starttime="20230324 22:08:48.289" endtime="20230324 22:09:00.335">Evaluating expression ''England' in 'England: Made in the Middle
+Historian Helen Castor examines the role of the Midlands in the creation of England.
+Site
+Programmes
+Section
+BBC Radio 4
+We Are England
+We Are England explores the issues people care about, as told by them.
+Site
+Programmes
+Section
+BBC One
+Discovery of England
+Jonathan Bate explores how Elizabethan culture has shaped our image of England.
+Site
+Programmes
+Section
+BBC Radio 4
+    [ Message content over the limit has been removed. ]
+Harry Kane: England captain reflects on breaking England goalscoring record on 'amazing night' in Italy
+England captain Harry Kane says it was a "proud moment" for him to break the England goalscoring record.
+Published
+12 hours ago
+Site
+Sport
+Section
+Football
+Watch: England U21 v France U21 LIVE
+Watch live coverage as England host France in an under-21 friendly at the King Power Stadium.
+Published
+4 hours ago
+Site
+Sport
+Section
+Football'' failed: SyntaxError: unterminated string literal (detected at line 1) (&lt;string&gt;, line 1)</status>
+</test>
+<doc>Basic info about the whole suite</doc>
+<status status="FAIL" starttime="20230324 22:08:47.961" endtime="20230324 22:09:00.340"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Positive</stat>
+<stat pass="0" fail="1" skip="0">Smoke</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="BBC">BBC</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221015 18:34:57.443" rpa="false" schemaversion="3">
+<suite id="s1" name="Print" source="C:\Users\Edward\PycharmProjects\sample-robot-framework-python\CustomLibrary\Print.robot">
+<test id="s1-t1" name="Custom Library Test Case 1" line="8">
+<kw name="Print Message" library="NewCustomLibrary">
+<arg>Check if locators were changed!</arg>
+<msg timestamp="20221015 18:34:57.475" level="WARN">Check if locators were changed!</msg>
+<status status="PASS" starttime="20221015 18:34:57.475" endtime="20221015 18:34:57.476"/>
+</kw>
+<status status="PASS" starttime="20221015 18:34:57.474" endtime="20221015 18:34:57.476"/>
+</test>
+<doc>Some info about help</doc>
+<status status="PASS" starttime="20221015 18:34:57.445" endtime="20221015 18:34:57.477"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Print">Print</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20221015 18:34:57.475" level="WARN">Check if locators were changed!</msg>
+</errors>
+</robot>
